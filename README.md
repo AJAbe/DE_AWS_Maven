@@ -23,4 +23,5 @@ We are using different AWS technologies to achieve our goal here. Several key da
 
 The data flow is shown diagrammatically below. We will go into more details after this.
 
-![AWS_DE_Project_Abe_Dec2024](https://github.com/user-attachments/assets/e5fc11f9-2cff-4843-82e8-3e9423165b58)
+![AWS_DE_Project_Abe_Dec2024](https://github.com/user-attachments/assets/b914dabb-2181-4322-b8c7-3f5f590981b9)
+
