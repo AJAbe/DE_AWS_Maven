@@ -3,5 +3,8 @@ This project was done to look at extracting Stock data from the Polygon Stock We
 
 The data was pulled from [Polygon Stock Data](https://polygon.io/). Specificially the [aggregate bars](https://polygon.io/docs/stocks/get_v2_aggs_ticker__stocksticker__range__multiplier___timespan___from___to) which gives lot of useful information on a Stock over a date range in custom Window sizes
 
-| Data Extraction | AWS Lamda, AWS Kinesis Firehose, Amazon S3 |
+| Process | Tools |
+| ----------- | ----------- |
+| AWS Lamda, AWS Kinesis Firehose, Amazon S3 |
 | Data Transformation and Load  | AWS Glue Crawler, AWS Glue ETL Jobs and Workflow, AWS Athena |
+| Dashboarding and Misc | Amazon IAM, Grafana |
