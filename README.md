@@ -51,10 +51,11 @@ But first, we need to inspect the data. that too, a smart way, not spending a lo
 Now, comes the main part. [AWS Glue](https://aws.amazon.com/glue/)
 - There are two main components of Glue that we will use here. One is the ETL Jobs part (Python files) and the other is the process to stitch them together - Glue Workflows
 - We start by creating 4 ETL Jobs that does the below functions
-- - Delete any existing Parquet table with the same name as provided
+  - Delete any existing Parquet table with the same name as provided. We could remove and recreate any Buckets that exist with the same name
   - Perform Data Quality checks on the source data
   - Insert new records in Parquet format
   - Publish out the file
+  - *The 4th step is more or less the piece where we can partition out the data from the main table based on attributes like month and year and store data in terms of having date / onth / year suffixes etc.*
 
     
 
