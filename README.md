@@ -8,3 +8,7 @@ The data was pulled from [Polygon Stock Data](https://polygon.io/). Specificiall
 | Data Extraction | AWS Lamda, AWS Kinesis Firehose, Amazon S3 |
 | Data Transformation and Load | AWS Glue Crawler, AWS Glue ETL Jobs and Workflow, AWS Athena |
 | Dashboarding and Misc | Amazon IAM, Grafana |
+
+Lets deep dive into more details.
+
+Now, what is Serverless Data Engineering. It is a is a method of collecting, transforming, and preparing data for analysis and decision-making using serverless technologies. It's a paradigm shift that allows data engineers to focus on developing data pipelines and applications without managing servers
