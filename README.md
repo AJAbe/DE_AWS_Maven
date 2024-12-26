@@ -52,6 +52,7 @@ There are several aspects of configuration here which are important
   - AmazonS3FullAccess
 - The role created for the Lambda Service. It needs to have the AmazonKinesisFirehoseFullAccess Policy added to it. Additionally, if AWS Secrets Manager is beig used, have the SecretsManagerReadWrite Policy also added
 - The Firehose role needs to have the AmazonS3FullAccess added.
+- The Grafana user created would also need the AmazonAthenaFullAccess and AmazonS3FullAccess policies added
 
 ## Data Transformation and Load
 
@@ -82,6 +83,10 @@ As shown in the diagram below, each of the jobs created above is stitched togeth
 
 ## Grafana Visualization
 
+Finally, we expose the data onto a Grafana Dashboard. Grafana is not a AWS managed tool, though AWS has connectors to be able to connect to Grafana. There are different ways to connect to Grafana inclusing [AWS Managed Grafana Instance](https://aws.amazon.com/grafana/), but I used the [AWS Auth process](https://grafana.com/docs/grafana/latest/datasources/aws-cloudwatch/aws-authentication/) within Grafana. This would also entail creating a new Access Key ID - Key pair via [IAM - Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html).
+
+Finally, I created a Dashboard that has two reports. One shows the daily closing stock value for both companies. And the other shows the Average for each company across the 6 month period
+
 [Final Data Snapshot](https://abejabe.grafana.net/dashboard/snapshot/qJYVzvGEy1KbfMx7jdzflTQbo6tKxWvb)
 
 ## Learnings and Next Steps
@@ -89,4 +94,6 @@ As shown in the diagram below, each of the jobs created above is stitched togeth
 - During the Lambda Code development, I hadnt specifically coerced the Stock Value variable to be decimal. This caused the value to get stored as a String and eventually caused issues during viz. I had to work back via debugging to eventialluy fix it. Learning: ALways be sure of what data type, you expect the data to be in, before the stage of final table publish
 - Understanding AWS Secrets Manager - Nothing specific to bring here, except I missed few aspects while coding, which were straightforward. There is boiler plate code that AWS provides, so just be sure to use that.
 - Debugging IAM Access Roles and its interactions with various modules. Unfortunately, learnt it the hard way via the course as well as googling, but again worth the effort
+- I would like to experiment a bit more with creating reports from Grafana. Especially pivoting on multiple dimensions (like showing Average each month per Ticker value). I was not able to get it working, so might want to check on it
+- Event Bridge
 
