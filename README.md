@@ -44,6 +44,15 @@ There are several aspects of configuration here which are important
     
 ![S3](https://github.com/user-attachments/assets/0dc9b0c2-525c-47c8-a3c2-2438fdf44942)
 
+## Alert - IAM Steps - Very Important
+
+- Ensure the below Roles are assigned to ensure the data flow proceeds smooth and sound.
+- As part of working with AWS Glue, there will be a standard role created (AWSGlueServiceRole). Ensure that it has permission to the below Policies
+  - AmazonAthenaFullAccess
+  - AmazonS3FullAccess
+- The role created for the Lambda Service. It needs to have the AmazonKinesisFirehoseFullAccess Policy added to it. Additionally, if AWS Secrets Manager is beig used, have the SecretsManagerReadWrite Policy also added
+- The Firehose role needs to have the AmazonS3FullAccess added.
+
 ## Data Transformation and Load
 
 Next we get into the more technical piece for the project. Now, we have the data in the S3 layer. Remember, its in the raw format. There could be data issues present. We need to perform quality checks and correct the data as needed.
