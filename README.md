@@ -5,6 +5,6 @@ The data was pulled from [Polygon Stock Data](https://polygon.io/). Specificiall
 
 | Process | Tools |
 | ----------- | ----------- |
-| AWS Lamda, AWS Kinesis Firehose, Amazon S3 |
-| Data Transformation and Load  | AWS Glue Crawler, AWS Glue ETL Jobs and Workflow, AWS Athena |
+| Data Extraction | AWS Lamda, AWS Kinesis Firehose, Amazon S3 |
+| Data Transformation and Load | AWS Glue Crawler, AWS Glue ETL Jobs and Workflow, AWS Athena |
 | Dashboarding and Misc | Amazon IAM, Grafana |
