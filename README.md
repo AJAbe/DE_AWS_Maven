@@ -26,7 +26,7 @@ The data flow is shown diagrammatically below. We will go into more details afte
 ![AWS_DE_Project_Abe_Dec2024](https://github.com/user-attachments/assets/b914dabb-2181-4322-b8c7-3f5f590981b9)
 
 
-##Data Extraction##
+## Data Extraction
 
 The ideal first task would be to create atleast 2 [S3](https://aws.amazon.com/s3/) buckets to start. One would be for storing the raw data that we get from the website. And the other would be for the Athena process to store query results. 
 
