@@ -6,7 +6,7 @@ The data was pulled from [Polygon Stock Data](https://polygon.io/). Specificiall
 | Process | Tools |
 | ----------- | ----------- |
 | Data Extraction | AWS Lamda, AWS Kinesis Firehose, Amazon S3 |
-| Data Transformation and Load | AWS Glue Crawler, AWS Glue ETL Jobs and Workflow, AWS Athena |
+| Data Transformation and Load | AWS Glue Crawler, AWS Glue Data Catalog, AWS Glue ETL Jobs and Workflow, AWS Athena |
 | Dashboarding and Misc | Amazon IAM, Grafana |
 
 Lets deep dive into more details.
@@ -41,6 +41,20 @@ There are several aspects of configuration here which are important
 - Eventually, the data is written into S3. We can see that S3 create a nested folder structure based on Year, Month, Date and Hour of data load. The file could actually be downloaded and we can view the data in a dictionary format (via Notebook or other Text Edit tools).
     
 ![S3](https://github.com/user-attachments/assets/0dc9b0c2-525c-47c8-a3c2-2438fdf44942)
+
+## Data Transformation and Load
+
+Next we get into the more technical piece for the project. Now, we have the data in the S3 layer. Remember, its in the raw format. There could be data issues present. We need to perform quality checks and correct the data as needed.
+
+But first, we need to inspect the data. that too, a smart way, not spending a lot of time, defining the columns and data types. Entre AWS Crawler. We do that by using the [AWS Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) job which inspects the schema for the dataset in S3 and then creates a Data Catalog within AWS Athena. And we can then query our data in [AWS Athena](https://aws.amazon.com/athena/). There isnt a lot to discuss on confuring the Crawler job, except to specify the source S3 location and the target database where we need to store the Data Catalog to. In essence, a table gets created which can be queries via Athena, though behind the scenes, it still querying the data in S3 using the schema details in the Catalog.
+
+Now, comes the main part. [AWS Glue](https://aws.amazon.com/glue/)
+- There are two main components of Glue that we will use here. One is the ETL Jobs part (Python files) and the other is the process to stitch them together - Glue Workflows
+- We start by creating 4 ETL Jobs that does the below functions
+- - Delete any existing Parquet table with the same name as provided
+  - Perform Data Quality checks on the source data
+  - Insert new records in Parquet format
+  - Publish out the file
 
     
 
