@@ -26,8 +26,9 @@ The data flow is shown diagrammatically below. We will go into more details afte
 ![AWS_DE_Project_Abe_Dec2024](https://github.com/user-attachments/assets/b914dabb-2181-4322-b8c7-3f5f590981b9)
 
 
-**Data Extraction**
-    The ideal first task would be to create atleast 2 [S3](https://aws.amazon.com/s3/) buckets to start. One would be for storing the raw data that we get from the website. And the other would be for the Athena process to store query results. 
+##Data Extraction##
+
+The ideal first task would be to create atleast 2 [S3](https://aws.amazon.com/s3/) buckets to start. One would be for storing the raw data that we get from the website. And the other would be for the Athena process to store query results. 
 
 We start first by creating a [AWS Lambda](https://aws.amazon.com/pm/lambda/?gclid=CjwKCAiAmrS7BhBJEiwAei59i5Q5rDOf1tv5NMyufZMunCcH-AqubZ2Nu-d-5eOEn1H8-tfsvh6zyRoCvYMQAvD_BwE&trk=73f686c8-9606-40ad-852f-7b2bcafa68fe&sc_channel=ps&ef_id=CjwKCAiAmrS7BhBJEiwAei59i5Q5rDOf1tv5NMyufZMunCcH-AqubZ2Nu-d-5eOEn1H8-tfsvh6zyRoCvYMQAvD_BwE:G:s&s_kwcid=AL!4422!3!651212652666!e!!g!!lambda!909122559!45462427876) function that reads data from the website and then feeds it to a AWS Kinesis Firehose process which then stores it into S3.
 
@@ -37,7 +38,7 @@ There are several aspects of configuration here which are important
   
   ![Kinesis](https://github.com/user-attachments/assets/ae61fbbe-60ff-4799-805d-ab0cf72b60ef)
 
-- Eventually, the data is written into S3. We can see that S3 create a nested folder structure based on Year, Month, Date and Hour of data load. 
+- Eventually, the data is written into S3. We can see that S3 create a nested folder structure based on Year, Month, Date and Hour of data load. The file could actually be downloaded and we can view the data in a dictionary format (via Notebook or other Text Edit tools).
     
 ![S3](https://github.com/user-attachments/assets/0dc9b0c2-525c-47c8-a3c2-2438fdf44942)
 
