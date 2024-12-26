@@ -11,4 +11,16 @@ The data was pulled from [Polygon Stock Data](https://polygon.io/). Specificiall
 
 Lets deep dive into more details.
 
-Now, what is Serverless Data Engineering. It is a is a method of collecting, transforming, and preparing data for analysis and decision-making using serverless technologies. It's a paradigm shift that allows data engineers to focus on developing data pipelines and applications without managing servers
+Now, what is Serverless Data Engineering. It is a is a method of collecting, transforming, and preparing data for analysis and decision-making using serverless technologies. It's a paradigm shift that allows data engineers to focus on developing data pipelines and applications without managing servers.
+
+We are using different AWS technologies to achieve our goal here. Several key data engineering aspect utilized here include:
+- Extracting data from a public website using secret keys assigned with the ability to store the Key in a vault
+- Data extracted is then transformed from a JSON format to a Python understandable dictonary format and required elements are taken
+- It is then fed to a process that listens to this data and stores it into a data store
+- A crawler process would then identify the schema for the data in the storage, and create data catalog entries for it
+- For ease of processing and performance, we conert the data into a [Parquet](https://www.databricks.com/glossary/what-is-parquet#:~:text=Apache%20Parquet%20is%20an%20open,handle%20complex%20data%20in%20bulk.) format
+- Workflows would then run on demand which would look at the data, perform quality checks, remove any existing entries in the final tables, create new tables to store the data and finally store the data in the final Parquet format partioned for performance rationale.
+
+The data flow is shown diagrammatically below. We will go into more details after this.
+
+![AWS_DE_Project_Abe_Dec2024](https://github.com/user-attachments/assets/e5fc11f9-2cff-4843-82e8-3e9423165b58)
