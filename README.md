@@ -91,6 +91,6 @@ Finally, I created a Dashboard that has two reports. One shows the daily closing
 - Debugging IAM Access Roles and its interactions with various modules. Unfortunately, learnt it the hard way via the course as well as googling, but again worth the effort
 - I would like to experiment a bit more with creating reports from Grafana. Especially pivoting on multiple dimensions (like showing Average each month per Ticker value). I was not able to get it working, so might want to check on it
 - [AWS Event Bridge](https://aws.amazon.com/eventbridge/) : Lets say, we need the Lambda job to constantly listen to the WebSite on an interval and process data. Thats where Event Bridge comes in, and can be used to invoke the lmbda function on an interval. Might not be too relevant for this use case, but there are certainly scenarios where it could be useful to ensure the process picks up updates.
-- I tried to experiment with [AWS SES]([ aws](https://aws.amazon.com/getting-started/hands-on/send-an-email-with-amazon-ses/) in order to configure outward emails during DQ job failure, but was not able to get it working. Probably for a later experiment.
+- I tried to experiment with [AWS SES](https://aws.amazon.com/getting-started/hands-on/send-an-email-with-amazon-ses/) in order to configure outward emails during DQ job failure, but was not able to get it working. Probably for a later experiment.
 - More in depth DQ procedures.
 
